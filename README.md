@@ -8,6 +8,17 @@ O projeto simula um fluxo corporativo completo:
 App Web -> API Python -> MySQL -> Power BI
 ```
 
+
+## Demonstração
+
+### Projeto em execução
+
+![Projeto em execução](media/project.jpg)
+
+### Dashboard Power BI
+
+![Dashboard Power BI](media/helpdesk.gif)
+
 ## Tecnologias
 
 - Python
@@ -124,3 +135,4 @@ Depois de abrir chamados pelo app:
 O GitHub Pages exibe apenas a interface estática do `index.html`.
 
 A versão completa, com API Python e MySQL, precisa ser executada localmente.
+
