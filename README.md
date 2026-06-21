@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="media/project.jpg" alt="chamados&serviços em execução" width="70%">
+<img src="media/project.png" alt="chamados&serviços em execução" width="70%">
 
 <br/>
 
