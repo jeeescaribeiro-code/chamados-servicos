@@ -16,8 +16,23 @@ Aplicação que simula o ciclo real de suporte técnico corporativo, da abertura
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Demo-222222?style=flat&logo=github&logoColor=white)](https://jeeescaribeiro-code.github.io/chamados-servicos)
 
 </div>
+
+---
+
+## Demonstração Online
+
+<div align="center">
+
+[![Abrir demonstração no GitHub Pages](https://img.shields.io/badge/Abrir%20demonstração-GitHub%20Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://jeeescaribeiro-code.github.io/chamados-servicos)
+
+</div>
+
+A versão publicada no **GitHub Pages** apresenta a interface estática do projeto para visualização rápida.
+
+> A aplicação completa depende da **API Python** e do **banco MySQL local**, então funcionalidades como cadastro, persistência de chamados, chat e atualização do Power BI exigem a execução local.
 
 ---
 
@@ -139,6 +154,6 @@ A lógica de sugestão automática de categoria e SLA foi a parte mais interessa
 
 It covers the complete data lifecycle: a web app writes structured data through a local API to a relational database, which then feeds a Power BI dashboard with KPIs like SLA compliance, cost by category, and team performance metrics.
 
-*For the live static demo, see [GitHub Pages](https://jeeescaribeiro-code.github.io/chamados-servicos). Full functionality requires local setup with Python and MySQL.*
+*Demo estática disponível no [GitHub Pages](https://jeeescaribeiro-code.github.io/chamados-servicos). Para usar a aplicação completa, execute o projeto localmente com Python e MySQL.*
 
 </div>
