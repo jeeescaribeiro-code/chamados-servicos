@@ -6,9 +6,9 @@
 
 # chamados&serviços
 
-**Solução completa de help desk com pipeline de dados integrado**
+**Solução de help desk com pipeline de dados**
 
-Aplicação web que simula o ciclo real de suporte técnico corporativo — da abertura do chamado até o dashboard analítico em Power BI, passando por uma API Python e banco MySQL.
+Aplicação que simula o ciclo real de suporte técnico corporativo, da abertura do chamado até o dashboard analítico em Power BI, passando por uma API Python e banco MySQL.
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
@@ -50,7 +50,6 @@ A ideia central foi replicar o fluxo que existe dentro de empresas de suporte �
 ## Funcionalidades
 
 **Usuário final**
-- Cadastro e login com autenticação
 - Abertura de chamados com sugestão automática de categoria, prioridade e SLA baseada no texto digitado
 - Acompanhamento de chamados com status, responsável e prazo
 - Chat com histórico e timeline por chamado
@@ -111,8 +110,6 @@ Crie um arquivo `config.json` na raiz do projeto:
 }
 ```
 
-> ⚠️ Nunca suba o `config.json` com senha real para o GitHub.
-
 **2. Execute a aplicação**
 
 Clique duas vezes em `run_app.bat` ou rode pelo terminal:
@@ -121,35 +118,12 @@ Clique duas vezes em `run_app.bat` ou rode pelo terminal:
 run_app.bat
 ```
 
-**3. Acesse no navegador**
-
-```
-http://127.0.0.1:8060
-```
-
-**Login de demonstração** (criado automaticamente se houver usuários no banco):
-
-```
-ana.silva@empresa.com
-123456
-```
-
----
-
 ## Power BI
 
 Conecte o Power BI diretamente ao banco `helpdesk_sla` via MySQL.
 
 - **Modo Importar:** clique em *Atualizar* após abrir novos chamados no app
-- **DirectQuery:** dados atualizados em tempo real diretamente do banco
 
----
-
-## GitHub Pages
-
-O GitHub Pages exibe a interface estática (`index.html`). Para a versão completa com API e banco de dados, é necessário rodar localmente conforme as instruções acima.
-
----
 
 ## O que esse projeto cobre
 
@@ -160,8 +134,6 @@ A lógica de sugestão automática de categoria e SLA foi a parte mais interessa
 ---
 
 <div align="center">
-
----
 
 **This project** simulates a full corporate help desk solution — ticket management, SLA tracking, and BI analytics — built with Python, MySQL, and Power BI.
 
