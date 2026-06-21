@@ -1,87 +1,104 @@
-﻿# chamados&serviços
+<div align="center">
 
-Aplicação web de portfólio para abertura, acompanhamento e gerenciamento de chamados técnicos e solicitações de serviços, integrada a um banco MySQL e preparada para análise em Power BI.
+<img src="media/project.jpg" alt="chamados&serviços em execução" width="70%">
 
-O projeto simula um fluxo corporativo completo:
+<br/>
 
-```text
-App Web -> API Python -> MySQL -> Power BI
+# chamados&serviços
+
+**Solução completa de help desk com pipeline de dados integrado**
+
+Aplicação web que simula o ciclo real de suporte técnico corporativo — da abertura do chamado até o dashboard analítico em Power BI, passando por uma API Python e banco MySQL.
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com)
+
+</div>
+
+---
+
+## Visão Geral
+
+Este projeto simula uma solução real de help desk corporativo com quatro camadas integradas:
+
+```
+App Web (HTML/CSS/JS)
+    ↓
+API Local (Python)
+    ↓
+Banco de Dados (MySQL)
+    ↓
+Análise & BI (Power BI + DAX)
 ```
 
+A ideia central foi replicar o fluxo que existe dentro de empresas de suporte — onde chamados precisam ser rastreados, priorizados, associados a SLAs e depois virar indicador de gestão.
 
-## Demonstração
+---
 
-### Projeto em execução
+## Dashboard Power BI
 
-![Projeto em execução](media/project.jpg)
+<div align="center">
+<img src="media/helpdesk.gif" alt="Dashboard Power BI animado" width="90%">
+</div>
 
-### Dashboard Power BI
-
-![Dashboard Power BI](media/helpdesk.gif)
-
-## Tecnologias
-
-- Python
-- API local
-- MySQL
-- SQL
-- HTML
-- CSS
-- JavaScript
-- Power BI
-- DAX
+---
 
 ## Funcionalidades
 
-- Cadastro e login de usuários.
-- Abertura de chamados técnicos.
-- Lista de chamados com status, prioridade, SLA e responsável.
-- Detalhes do chamado com chat e timeline.
-- Dashboard do usuário.
-- Dashboard do administrador/atendente.
-- Tela de serviços disponíveis.
-- Base de conhecimento.
-- Relatórios e indicadores.
-- Sugestão automática de categoria, prioridade e SLA com base no texto do chamado.
+**Usuário final**
+- Cadastro e login com autenticação
+- Abertura de chamados com sugestão automática de categoria, prioridade e SLA baseada no texto digitado
+- Acompanhamento de chamados com status, responsável e prazo
+- Chat com histórico e timeline por chamado
+- Dashboard pessoal com resumo de solicitações
 
-## Integração com MySQL
+**Atendente / Administrador**
+- Fila de chamados com filtros de prioridade e vencimento
+- Painel com indicadores em tempo real
+- Base de conhecimento e catálogo de serviços
 
-A aplicação usa o banco `helpdesk_sla`.
+---
 
-Principais integrações:
+## Modelagem do Banco (`helpdesk_sla`)
 
-- Cadastro e login ficam em `app_usuarios`.
-- O cadastro também cria registro em `usuarios`.
-- Chamados novos são gravados em `chamados`.
-- Título e descrição ficam em `chamado_detalhes`.
-- Comentários do chat ficam em `chamado_comentarios`.
-- Eventos da timeline ficam em `chamado_historico`.
-- Categorias, SLA, atendentes e departamentos vêm das tabelas existentes:
-  - `categorias`
-  - `sla_regras`
-  - `atendentes`
-  - `departamentos`
-  - `usuarios`
+| Tabela | Conteúdo |
+|---|---|
+| `app_usuarios` | Autenticação (login/cadastro) |
+| `usuarios` | Perfil completo do usuário |
+| `chamados` | Registro principal dos chamados |
+| `chamado_detalhes` | Título e descrição |
+| `chamado_comentarios` | Mensagens do chat |
+| `chamado_historico` | Eventos da timeline |
+| `categorias` | Tipos de chamado disponíveis |
+| `sla_regras` | Prazos por prioridade/categoria |
+| `atendentes` | Equipe de suporte |
+| `departamentos` | Estrutura organizacional |
 
-## Indicadores Trabalhados
+---
 
-- Total de chamados.
-- Chamados abertos.
-- Chamados dentro e fora do SLA.
-- Fila crítica por prioridade e vencimento.
-- Custo por categoria.
-- Categoria que mais gera gasto.
-- Departamento que mais abre chamados.
-- Departamento que mais gera custo.
-- Perfil de usuário que mais solicita suporte.
-- Atendentes com maiores notas.
-- Satisfação média.
+## Indicadores Analíticos (Power BI + DAX)
 
-## Antes de Rodar
+- Volume total de chamados e status atual
+- % dentro e fora do SLA
+- Fila crítica: prioridade × vencimento
+- Custo por categoria e departamento
+- Atendentes com melhores avaliações
+- Satisfação média dos usuários
+- Perfil de usuário que mais demanda suporte
 
-Confira o arquivo `config.json`.
+---
 
-Se ele não existir, crie um arquivo com base neste exemplo:
+## Como Rodar Localmente
+
+**Pré-requisitos:** Python 3.x, MySQL 8.x instalado e rodando
+
+**1. Configure a conexão**
+
+Crie um arquivo `config.json` na raiz do projeto:
 
 ```json
 {
@@ -94,45 +111,62 @@ Se ele não existir, crie um arquivo com base neste exemplo:
 }
 ```
 
-Nunca publique o `config.json` com senha real no GitHub.
+> ⚠️ Nunca suba o `config.json` com senha real para o GitHub.
 
-## Como Rodar Localmente
+**2. Execute a aplicação**
 
-Clique duas vezes em:
+Clique duas vezes em `run_app.bat` ou rode pelo terminal:
 
-```text
+```bash
 run_app.bat
 ```
 
-Depois acesse no navegador:
+**3. Acesse no navegador**
 
-```text
+```
 http://127.0.0.1:8060
 ```
 
-## Login Demo
+**Login de demonstração** (criado automaticamente se houver usuários no banco):
 
-O app cria um login demonstrativo se houver usuários no banco:
-
-```text
+```
 ana.silva@empresa.com
 123456
 ```
 
-Também é possível criar uma conta pela tela de login.
+---
 
 ## Power BI
 
-O Power BI deve conectar diretamente ao banco MySQL `helpdesk_sla`.
+Conecte o Power BI diretamente ao banco `helpdesk_sla` via MySQL.
 
-Depois de abrir chamados pelo app:
+- **Modo Importar:** clique em *Atualizar* após abrir novos chamados no app
+- **DirectQuery:** dados atualizados em tempo real diretamente do banco
 
-- Se o Power BI estiver em modo Importar, clique em `Atualizar`.
-- Se estiver em DirectQuery, os dados são consultados diretamente do MySQL.
+---
 
-## Observação Para GitHub Pages
+## GitHub Pages
 
-O GitHub Pages exibe apenas a interface estática do `index.html`.
+O GitHub Pages exibe a interface estática (`index.html`). Para a versão completa com API e banco de dados, é necessário rodar localmente conforme as instruções acima.
 
-A versão completa, com API Python e MySQL, precisa ser executada localmente.
+---
 
+## O que esse projeto cobre
+
+Esse projeto foi uma forma de conectar conceitos que geralmente ficam separados em curso: modelagem relacional, integração entre camadas, análise de dados e visualização. Na prática, precisei pensar no banco de dados como fonte de verdade para três consumidores diferentes ao mesmo tempo — a aplicação web, a API e o Power BI — e garantir que os dados escritos em um lugar chegassem corretamente no outro.
+
+A lógica de sugestão automática de categoria e SLA foi a parte mais interessante: o sistema analisa o texto do chamado e tenta inferir o tipo de problema e o prazo adequado, o que exigiu pensar em regras de negócio além do CRUD.
+
+---
+
+<div align="center">
+
+---
+
+**This project** simulates a full corporate help desk solution — ticket management, SLA tracking, and BI analytics — built with Python, MySQL, and Power BI.
+
+It covers the complete data lifecycle: a web app writes structured data through a local API to a relational database, which then feeds a Power BI dashboard with KPIs like SLA compliance, cost by category, and team performance metrics.
+
+*For the live static demo, see [GitHub Pages](https://jeeescaribeiro-code.github.io/chamados-servicos). Full functionality requires local setup with Python and MySQL.*
+
+</div>
